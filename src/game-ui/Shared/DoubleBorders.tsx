@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import styled from 'styled-components';
 
 const BorderA = styled.div`
@@ -24,10 +24,14 @@ const BorderB = styled.div`
   box-sizing: border-box;
 `;
 
-export const DoubleBorders: React.FC = (props) => {
-  return (
-    <BorderA>
-      <BorderB>{props.children}</BorderB>
-    </BorderA>
-  );
+type DoubleBordersProps = {
+    children: ReactNode;
+};
+
+export const DoubleBorders: React.FC<DoubleBordersProps> = (props) => {
+    return (
+        <BorderA>
+            <BorderB>{props.children}</BorderB>
+        </BorderA>
+    );
 };

@@ -1,6 +1,6 @@
 import './fade.css';
 
-import React from 'react';
+import React, {ReactNode} from 'react';
 import styled from 'styled-components';
 
 import {
@@ -20,6 +20,7 @@ const Wrapper = styled.div`
 interface Props {
   depth: number;
   gameStatus: GameStatus;
+  children: ReactNode;
 }
 
 export const Viewport: React.FC<Props> = (props) => {

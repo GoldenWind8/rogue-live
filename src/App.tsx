@@ -1,10 +1,10 @@
 import './App.css';
-
 import { HowlOptions } from 'howler';
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import { useImmerReducer } from 'use-immer';
+// @ts-ignore
 import useSound from 'use-sound';
 
 import crystalCaveSong from './assets/music/crystal-cave-song.mp3';
@@ -30,7 +30,6 @@ export const App: React.FC = () => {
   const [state, dispatch] = useImmerReducer(game, INITIAL_STATE);
   // @ts-ignore
   const [play, { stop, sound }] = useSound<HowlOptions>(crystalCaveSong, {
-    src: undefined,
     loop: true,
     volume: 0.1,
   });
@@ -70,19 +69,18 @@ export const App: React.FC = () => {
   return (
     <Wrapper>
       <Router>
-        <Switch>
-          <Route exact path="/">
+        <Routes>
+          <Route path="/" element={
             <Game
-              state={state}
-              dispatch={dispatch}
-              withBackgroundMusic={withBackgroundMusic}
-              setWithBackgroundMusic={setWithBackgroundMusic}
+                state={state}
+                dispatch={dispatch}
+                withBackgroundMusic={withBackgroundMusic}
+                setWithBackgroundMusic={setWithBackgroundMusic}
             />
-          </Route>
-          <Route exact path="/pcg">
-            <MapGenerator state={state} dispatch={dispatch} />
-          </Route>
-        </Switch>
+          } />
+
+          <Route path="/pcg" element={<MapGenerator state={state} dispatch={dispatch} />}/>
+        </Routes>
       </Router>
     </Wrapper>
   );

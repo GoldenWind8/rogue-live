@@ -1,12 +1,15 @@
 import './shake.css';
 
-import React from 'react';
+import React, {ReactNode} from 'react';
 
 import { ANIMATIONS_DURATION } from '../../constants/config';
 
+
+// Extend the Props interface to include children of type ReactNode
 interface Props {
   shake: boolean;
   round: number;
+  children?: ReactNode; // children are optional and can be any valid React node
 }
 
 export const ShakeLayer: React.FC<Props> = (props) => {

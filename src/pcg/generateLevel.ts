@@ -24,7 +24,7 @@ import { getRandomAreaWithinArea } from './getRandomAreaWithinArea';
 import { horizontalSplitArea } from './horizontalSplitArea';
 import { verticalSplitArea } from './verticalSplitArea';
 
-const NUMBER_0F_SPLITS = 3;
+const NUMBER_0F_SPLITS = 1;
 
 const fullMap: Area = {
   origin: { x: 0, y: 0 },
